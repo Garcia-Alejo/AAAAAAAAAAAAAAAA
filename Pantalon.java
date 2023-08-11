@@ -1,4 +1,7 @@
 
+package shoponline;
+
+
 public class Pantalon extends Producto {
     private int talle ;
 
@@ -9,7 +12,7 @@ public class Pantalon extends Producto {
 
     @Override
     public String toString() {
-        return "Pantalon" + talle ;
+        return super.toString()+ "(talle" + talle + ")" ;
     }
 
     @Override
@@ -23,14 +26,9 @@ public class Pantalon extends Producto {
             precioFinal = this.precio + (this.precio * 25) / 100;
         }
         if (talle == 'R') {
-            precioFinal = this.precio + (this.precio * 15) / 100;
+            precioFinal = this.precio - (this.precio * 15) / 100;
         }
         
         return precioFinal;
     }
-
-    public int getTalle() {
-        return talle;
-    }
-    
 }

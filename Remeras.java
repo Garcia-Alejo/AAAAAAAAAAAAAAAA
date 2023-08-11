@@ -1,4 +1,7 @@
 
+package shoponline;
+
+
 public class Remeras extends Producto {
 
     private char talle;
@@ -10,7 +13,7 @@ public class Remeras extends Producto {
 
     @Override
     public String toString() {
-        return "Remeras" + talle;
+        return super.toString()+ "(talle" + talle + ")" ;
     }
 
     @Override

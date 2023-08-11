@@ -1,4 +1,6 @@
 
+package shoponline;
+
 public abstract class Producto {
     private String desc ;
     private int codigo ;

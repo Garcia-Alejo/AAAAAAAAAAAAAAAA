@@ -1,4 +1,7 @@
 
+package shoponline;
+
+
 public class Cliente {
   private String nombre ;
 
@@ -10,6 +13,4 @@ public class Cliente {
     public String toString() {
         return "Cliente:" + nombre ;
     }
-  
-  
 }
