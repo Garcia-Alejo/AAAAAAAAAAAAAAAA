@@ -21,13 +21,13 @@ public class Pantalon extends Producto {
     public double getPrecio() {
         double precioFinal = 0;
 
-         if (modelo == "O") {
+         if (modelo.equalsIgnoreCase("O") ) {
             precioFinal = this.precio + (this.precio * 15) / 100;
         }
-        if (modelo == "S") {
+        if (modelo .equalsIgnoreCase("S")) {
             precioFinal = this.precio + (this.precio * 25) / 100;
         }
-        if (modelo == "R") {
+        if (modelo .equalsIgnoreCase("R")) {
             precioFinal = this.precio - (this.precio * 15) / 100;
         }
         

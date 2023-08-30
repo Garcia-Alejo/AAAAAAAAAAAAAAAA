@@ -2,6 +2,7 @@ package shoponline;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 
 public class ShoponLine {
@@ -25,8 +26,7 @@ public class ShoponLine {
 
     private static void cargarProductos(Venta venta) {
         Scanner teclado= new Scanner (System.in);
-        System.out.println("desea agregar un producto  1-si  2-no ");
-        int compra = teclado.nextInt();
+        int compra = Integer.parseInt(JOptionPane.showInputDialog("desea agregar un producto  1-si  2-no "));
      // definir todas las variables generalas para todos los productos
         
         String desc="";
@@ -40,49 +40,39 @@ public class ShoponLine {
             
             switch(op){ //hicimos un swithc(es como un if) y cada caso se evalua el producto que desea llevar el cliente
             
-                case 1: System.out.println("Ingrese talle del pantalon");
-                    int talle= teclado.nextInt();
-                        System.out.println("Ingrese descripcion");
-                        desc= teclado.nextLine();
-                        System.out.println("Ingrese modelo");
-                        String m= teclado.nextLine();
-                        System.out.println("Ingrese codigo");
-                        codigo=teclado.nextInt();
-                        System.out.println("Ingrese precio");
-                        precio= teclado.nextDouble();
+                case 1: 
+                    int talle= Integer.parseInt(JOptionPane.showInputDialog("Ingrese talle del pantalon"));
+                        desc= JOptionPane.showInputDialog("Ingrese descripcion");
+                        String m= JOptionPane.showInputDialog("Ingrese modelo");
+                        codigo=Integer.parseInt(JOptionPane.showInputDialog("Ingrese codigo"));
+                        precio=Double.parseDouble(JOptionPane.showInputDialog("Ingrese precio"));
                         p= new Pantalon (talle , desc , codigo, precio,m); 
                         venta.agregarProducto(p);//agregamos los productos aql array 
                         break; //usamos el constructor y le dimos valores
             
-                case 2: System.out.println("Ingrese talle");
-                        char talleR = (teclado.next ()).charAt(0) ;
-                        System.out.println("Ingrese descripcion");
-                        desc= teclado.nextLine();
-                        System.out.println("Ingrese codigo");
-                        codigo=teclado.nextInt();
-                        System.out.println("Ingrese precio");
-                        precio= teclado.nextDouble();
+                case 2: 
+                        char talleR =JOptionPane.showInputDialog("Ingrese talle").charAt(0) ;
+                        desc=JOptionPane.showInputDialog("Ingrese descripcion");
+                        codigo=Integer.parseInt(JOptionPane.showInputDialog("Ingrese codigo"));
+                        precio=Double.parseDouble(JOptionPane.showInputDialog("Ingrese precio"));
                         p= new Remeras (talleR , desc , codigo, precio); 
                         venta.agregarProducto(p);
                         break; 
             
-                case 3: System.out.println("Que metal elige para su joya tan preciosa y bonita y fabulosa y cochambrosa");
-                        String metal = teclado.next();
-                        System.out.println("Ingrese el peso de la joya tan preciada que compra");
-                        double peso = teclado.nextDouble();
+                case 3: 
+                        String metal = JOptionPane.showInputDialog("Que metal elige para su joya tan preciosa y bonita y fabulosa y cochambrosa");
+                        double peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el peso de la joya tan preciada que compra"));
                         p= new Accesorio (Metal.valueOf(metal.toUpperCase()), peso, desc, codigo, precio);
                         venta.agregarProducto(p);
                         break;
             }
-         System.out.println("desea agregar un producto  1-si  2-no ");
-         compra = teclado.nextInt();   
+         compra = Integer.parseInt(JOptionPane.showInputDialog("desea agregar un producto  1-si  2-no ")); 
         }
     }
 
     private static int menu() { //
         Scanner teclado = new Scanner (System.in); 
-        System.out.println("que producto queire llevar  1-pantis  2- Tshirts  3- julerie ");
-        int prenda= teclado.nextInt();
+        int prenda= Integer.parseInt(JOptionPane.showInputDialog("que producto queire llevar  1-pantis  2- Tshirts  3- julerie "));
         return prenda;
     }
 }

@@ -1,6 +1,6 @@
 package shoponline;
 
-public class Accesorio extends Producto {
+public class Accesorio extends Producto implements Importable{
 
     private Metal metal;
     private double peso;
@@ -30,7 +30,25 @@ public class Accesorio extends Producto {
         if (metal == Metal.ACERO){
             precioFinal=metal.getPrecio()*this.peso;
         }
-            
-      return precioFinal;
+       precioFinal=this.arancelAduanero(precioFinal);
+       precioFinal=this.arancelEnvio(precioFinal);
+      
+       return precioFinal;
     }
+
+    @Override
+    public double arancelAduanero(double p) {
+        double descuento=0;
+        descuento=p*10/100;
+        return descuento;
+    }
+
+    @Override
+    public double arancelEnvio(double p) {
+        double descuento=0;
+        descuento=p*2/100;
+        return descuento; 
+    }
+      
+    
 }

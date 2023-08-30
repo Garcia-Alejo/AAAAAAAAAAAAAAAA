@@ -14,7 +14,7 @@ public abstract class Producto {
     
     @Override
     public String toString() {
-        return "Producto" + desc + "codigo" + codigo + "precio=" + precio ;
+        return "Producto " + desc + " codigo " + codigo + " precio= " + precio ;
     }
     
     public abstract double getPrecio ();
